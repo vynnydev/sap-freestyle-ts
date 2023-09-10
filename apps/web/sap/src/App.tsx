@@ -2,7 +2,7 @@ import { SplitterLayout, SplitterElement, FlexBox, Title } from '@ui5/webcompone
 import { setTheme } from '@ui5/webcomponents-base/dist/config/Theme'
 
 import Header from './presentation/components/header/header'
-import SearchEmployees from './presentation/components/inputs/search-employees'
+import Searchcustomers from './presentation/components/inputs/search-customers'
 import UserCard from './presentation/components/user-card/user-card'
 import InfoSection from './presentation/components/info-section/info-section'
 
@@ -49,26 +49,26 @@ export default function App() {
                   direction="Column"
                 >
 
-                  {/* <Title
+                  <Title
                     style={{
                       paddingLeft: '40px',
                       paddingTop: '25px',
                       paddingBottom: '25px'
                     }}
                   >
-                    Collaborators
-                  </Title> */}
+                    customers
+                  </Title>
 
-                  <div
+                  {/* <div
                     style={{
                       paddingLeft: '40px',
                       paddingTop: '25px',
                       paddingBottom: '25px'
                     }}
                   >
-                    <SearchEmployees />
-                  </div>
-                  
+                    <Searchcustomers />
+                  </div> */}
+
                   <UserCard />
 
                 </FlexBox>

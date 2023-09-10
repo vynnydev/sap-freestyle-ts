@@ -8,10 +8,10 @@ export class Server {
     const app = express()
 
     const hdl = createCombinedHandler({
-      handler: [__dirname + "/domain/entities/**/*.js"]
+      handler: [__dirname + "/domain/entities/**/*.ts"]
     })
 
-    cds.connect("db")
+    const sapAPI = await cds.connect.to("db")
     await cds
       .serve("all")
       .at("odata")
@@ -19,9 +19,16 @@ export class Server {
       .with(srv => hdl(srv))
 
     // Redirect requests to the OData Service
-    app.get('/', function(req, res) {
+    app.get('/v1/customers/users', function(req, res) {
       res.redirect('/odata')
     })
+
+    app.post('/v1/customers/user', async function(req, res) {
+      const sapAPI = await cds.connect.to("db")
+      return sapAPI.tx(req).create('/v1/customers/user', req.body)
+    })
+
+    app.patch('')
 
     // Run the server
     const port = process.env.PORT || 3001

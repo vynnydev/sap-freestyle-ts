@@ -11,7 +11,11 @@ const Header: React.FC = () => {
         onProductSwitchClick={function ka(){}}
         onProfileClick={function ka(){}}
         primaryTitle="User Manager"
-        searchField={<Input icon={<Icon interactive name="search"/>} showClearIcon/>}
+        searchField={
+          <Input style={{
+            paddingRight: '80px'
+          }} icon={<Icon interactive name="search"/>} showClearIcon/>
+        }
         showNotifications
         showProductSwitch
       />

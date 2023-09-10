@@ -1,0 +1,24 @@
+// Get All Users
+GET http://localhost:4004/customer/User
+
+###
+POST http://localhost:4004/customer/User
+Content-Type: application/json
+
+{
+  "ID": 220, 
+  "firstName": "Pedro",
+  "lastName": "Arthur",
+  "dateOfBirth": "2005-08-04",
+  "cpf": "717.203.350-79", 
+  "age": 18,
+  "address": "Sao Paulo, São Paulo"
+}
+
+###
+PATCH http://localhost:4004/customer/User/180
+Content-Type: application/json
+
+{
+  "cpf": "466.040.518-46"
+}

@@ -1,0 +1,11 @@
+{
+  "sqltools.useNodeRuntime": true,
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "customers",
+      "database": "${workspaceFolder:sap-ui5-fiori-freestyle}/apps/customers.db"
+    }
+  ]
+}

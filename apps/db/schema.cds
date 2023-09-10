@@ -8,5 +8,6 @@ entity User : managed {
   lastName : String;
   dateOfBirth : String;
   age  : Integer;
+  cpf: String(14);
   address : String;
 }

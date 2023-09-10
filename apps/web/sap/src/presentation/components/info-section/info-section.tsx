@@ -51,7 +51,7 @@ const InfoSection: React.FC = () => {
           <Breadcrumbs>
             <BreadcrumbsItem>Manager Cockpit</BreadcrumbsItem>
             <BreadcrumbsItem>My Team</BreadcrumbsItem>
-            <BreadcrumbsItem>Employee Details</BreadcrumbsItem>
+            <BreadcrumbsItem>customer Details</BreadcrumbsItem>
           </Breadcrumbs>
         } expandedContent={
           <MessageStrip>Information (only visible if header content is expanded)</MessageStrip>
@@ -232,9 +232,9 @@ const InfoSection: React.FC = () => {
                 Developer
               </Text>
             </FormItem>
-            <FormItem label="Employee Class">
+            <FormItem label="customer Class">
               <Text>
-                Employee
+                customer
               </Text>
             </FormItem>
             <FormItem label="Manager">
@@ -260,9 +260,9 @@ const InfoSection: React.FC = () => {
           </Form>
         </ObjectPageSubSection>
         <ObjectPageSubSection
-          aria-label="Employee Details"
-          id="employment-employee-details"
-          titleText="Employee Details"
+          aria-label="customer Details"
+          id="employment-customer-details"
+          titleText="customer Details"
         >
           <Form
             columnsL={4}

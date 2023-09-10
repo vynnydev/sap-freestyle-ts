@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A simple self-contained user service.",
   "dependencies": {
+    "@cap-js/sqlite": "^1.2.1",
     "@rocketseat/eslint-config": "^2.1.0",
     "@sap/cds": "^5.1.5",
     "cds-routing-handlers": "^3.0.5",
@@ -19,11 +20,22 @@
     "typescript": "^4.3.4"
   },
   "scripts": {
-    "start": "node ./sap-srv/server.js",
+    "start": "node ./src/server.js",
     "dev": "npm run build:cds && nodemon",
-    "deploy": "cds deploy --to sqlite:user.db",
+    "start:sap": "cds run --in-memory",
+    "deploy:db": "cds deploy --to sqlite:customers.db",
     "build": "npm run build:cds && npm run build:ts",
-    "build:cds": "echo 'Compiling cds sources...' && cds2types --cds ./sap-srv/service.cds --output ./ts-srv/domain/entities.ts --prefix I -f && cds build && cp .cdsrc.json gen/sap-srv",
+    "build:cds": "echo 'Compiling cds sources...' && cds2types --cds ./srv/customer-service.cds --output ./src/domain/user.ts --prefix I -f && cds build && cp .cdsrc.json gen/srv",
     "build:ts": "echo 'Compiling *.ts sources...' && tsc"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "database": "customers.db"
+        }
+      }
+    }
   }
 }

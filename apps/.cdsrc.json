@@ -2,15 +2,15 @@
   "build": {
       "target": "gen",
       "tasks": [
-          { "for": "hana", "src": "db", "options": { "model": ["db", "sap-srv"] } },
-          { "for": "node-cf", "src": "sap-srv", "options": { "model": ["db", "sap-srv"] } }
+          { "for": "hana", "src": "db", "options": { "model": ["db", "srv"] } },
+          { "for": "node-cf", "src": "srv", "options": { "model": ["db", "srv"] } }
       ]
   },
   "[production]": {
       "requires": {
           "db": {
               "kind": "hana",
-              "model": ["db", "sap-srv"]
+              "model": ["db", "srv"]
           },
           "uaa": {
               "kind": "xsuaa"
@@ -21,7 +21,7 @@
       "db": {
           "kind": "sqlite",
           "credentials": {
-              "database": "bookshop.db"
+              "database": "customers.db"
           }
       }
   },
