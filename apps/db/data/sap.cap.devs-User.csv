@@ -1,5 +1,5 @@
-ID;firstName;lastName;dateOfBirth;age;cpf;address
-101;Emily;Brontë;1998-07-30;25;384.812.840-33;Boston, Massachusetts
-104;Charlotte;Brontë;2000-04-21;23;176.895.330-94;Hertfordshire, England
-150;Edgar;Allen Poe;1990-01-19;33;039.249.730-16;Baltimore, Maryland
-180;Vinicius;Prudencio;1997-04-04;26;717.203.350-79;Sao Paulo, São Paulo
+ID;firstName;lastName;dateOfBirth;age;phoneNumber;socialAccounts;cpf;homeAddress;mailingAddress;goals;jobPosition
+101;Emily;singh;1998-07-30;25;+12-1928176759;linkedin.com/in/emily-singh/;384.812.840-33;Boston, Massachusetts;emily_singh@sap.com;SAP manager training;SAP Manager
+104;Charlotte;bordini;2000-04-21;23;+12-94454599652;linkedin.com/in/charlotte-bordini/;176.895.330-94;Hertfordshire, England;charlotte_bordini@sap.com;SAP UI training;UX designer
+150;Edgar;Allen Poe;1990-01-19;33;+44-74-472901188;linkedin.com/in/edgar-allen/;039.249.730-16;Baltimore, Maryland;edgar_allen_poe@sap.com;SAP frontend training;Frontend Developer
+180;Vinicius;Prudencio;1997-04-04;26;+55-11-989438989;linkedin.com/in/vinicius-prudencio/;717.203.350-79;Sao Paulo, São Paulo;vinicius_prudencio@sap.com;SAP development training;Fullstack Developer

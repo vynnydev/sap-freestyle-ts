@@ -1,10 +1,10 @@
 {
-  "xsappname": "cap-user-typescript",
+  "xsappname": "cap-customer-typescript",
   "tenant-mode": "dedicated",
   "description": "Security profile of called application",
   "scopes": [
       {
-          "name": "uaa.user",
+          "name": "uaa.customer",
           "description": "UAA"
       }
   ],
@@ -12,7 +12,7 @@
       {
           "name": "Token_Exchange",
           "description": "UAA",
-          "scope-references": ["uaa.user"]
+          "scope-references": ["uaa.customer"]
       }
   ]
 }

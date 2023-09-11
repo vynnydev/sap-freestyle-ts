@@ -7,7 +7,12 @@ entity User : managed {
   firstName : String;
   lastName : String;
   dateOfBirth : String;
-  age  : Integer;
+  age : Integer;
+  phoneNumber: String;
+  socialAccounts : String;
   cpf: String(14);
-  address : String;
+  homeAddress : String;
+  mailingAddress : String;
+  goals : String;
+  jobPosition : String;
 }

@@ -1,7 +1,7 @@
 {
-  "name": "cap-user-typescript",
+  "name": "cap-customer-typescript",
   "version": "1.0.0",
-  "description": "A simple self-contained user service.",
+  "description": "A simple self-contained customer service.",
   "dependencies": {
     "@cap-js/sqlite": "^1.2.1",
     "@rocketseat/eslint-config": "^2.1.0",
@@ -25,7 +25,7 @@
     "start:sap": "cds run --in-memory",
     "deploy:db": "cds deploy --to sqlite:customers.db",
     "build": "npm run build:cds && npm run build:ts",
-    "build:cds": "echo 'Compiling cds sources...' && cds2types --cds ./srv/customer-service.cds --output ./src/domain/user.ts --prefix I -f && cds build && cp .cdsrc.json gen/srv",
+    "build:cds": "echo 'Compiling cds sources...' && cds2types --cds ./srv/customer-service.cds --output ./ts-srv/domain/entities/customer.ts --prefix I -f && cds build && cp .cdsrc.json gen/srv",
     "build:ts": "echo 'Compiling *.ts sources...' && tsc"
   },
   "cds": {

@@ -1,4 +1,4 @@
-// Get All Users
+// Get All Customers
 GET http://localhost:4004/customer/User
 
 ###
@@ -22,3 +22,8 @@ Content-Type: application/json
 {
   "cpf": "466.040.518-46"
 }
+
+########################
+# Express API
+
+GET http://localhost:3001/v1/customers
