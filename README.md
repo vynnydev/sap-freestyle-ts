@@ -115,7 +115,7 @@ Se o banco de dados sqlite não for criado, execute: npm run deploy:db
 - [Craco](https://craco.js.org/)
 
 
-> ## Features do React
+> ## Features do React :iphone:
 
 * Functional Components
 * UseState
@@ -132,7 +132,7 @@ Se o banco de dados sqlite não for criado, execute: npm run deploy:db
 * Router
 * Memo
 
-> ## Features do Git
+> ## Features do Git :file_folder:
 
 * Alias
 * Log Personalizado
@@ -151,7 +151,7 @@ Se o banco de dados sqlite não for criado, execute: npm run deploy:db
 * Shortlog
 * Status
 
-> ## Features do Typescript
+> ## Features do Typescript :large_blue_circle:
 
 * POO Avançado
 * Interface
@@ -167,7 +167,7 @@ Até o momento, este projeto tem funcionalidades basicas.
 
 ### Funcionalidades 1.0 (MVP):
 
-- [ ] **Visualizar detalhadamente cada cliente da base de dados**
+- :ballot_box_with_check: **Visualizar detalhadamente cada cliente da base de dados**
 
 ### Funcionalidades 2.0:
 
