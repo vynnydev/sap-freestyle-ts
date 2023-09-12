@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import React, { useEffect } from 'react'
 import { useRecoilState, useResetRecoilState } from 'recoil'
 
@@ -11,6 +12,8 @@ import {
 import { customerListState } from './components'
 import { ILoadCustomerList } from '@/domain/application/usecases'
 
+import { useErrorHandler } from '@/presentation/hooks'
+
 import CustomerSection from '@/presentation/components/customer-section/customer-section'
 import CustomerList from '@/presentation/components/customer-list/customer-list'
 import Header from '@/presentation/components/header/header'
@@ -18,6 +21,8 @@ import Header from '@/presentation/components/header/header'
 import { setTheme } from '@ui5/webcomponents-base/dist/config/Theme'
 
 import Error from '@/presentation/components/error/error'
+
+import useLoadCustomer from '@/presentation/hooks/use-load-customer'
 
 type Props = {
   loadCustomerList: ILoadCustomerList
@@ -28,6 +33,10 @@ export const HomeCustomerList: React.FC<Props> = ({
 }: Props) => {
   const resetCustomerListState = useResetRecoilState(customerListState)
   const [state, setState] = useRecoilState(customerListState)
+
+  const handleError = useErrorHandler((error: Error) => {
+    setState((old) => ({ ...old, error: error.message }))
+  })
 
   const reload = (): void =>
     setState((old) => ({
@@ -41,8 +50,10 @@ export const HomeCustomerList: React.FC<Props> = ({
     loadCustomerList
       .loadAll()
       .then((customers) => setState((old) => ({ ...old, customers })))
+      .catch(handleError)
   }, [state.reload])
-  console.log(state.customers)
+
+  const useCustomer = useLoadCustomer(state.customers)
 
   setTheme('sap_horizon_dark')
   return (
@@ -96,7 +107,10 @@ export const HomeCustomerList: React.FC<Props> = ({
                   {state.error ? (
                     <Error error={state.error} reload={reload} />
                   ) : (
-                    <CustomerList customers={state.customers}></CustomerList>
+                    <CustomerList
+                      onClick={(id: number) => useCustomer(id)}
+                      customers={state.customers}
+                    ></CustomerList>
                   )}
                 </FlexBox>
               </SplitterElement>
@@ -110,7 +124,11 @@ export const HomeCustomerList: React.FC<Props> = ({
                   paddingRight: '55px',
                 }}
               >
-                <CustomerSection />
+                {state.error ? (
+                  <Error error={state.error} reload={reload} />
+                ) : (
+                  <CustomerSection />
+                )}
               </SplitterElement>
             </SplitterLayout>
           </FlexBox>

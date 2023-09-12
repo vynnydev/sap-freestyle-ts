@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Card,
   CardHeader,
@@ -10,42 +11,46 @@ import { CustomerModel } from '@/domain/models'
 
 type Props = {
   customers: LoadCustomerListResponse[]
+  onClick: (id: number) => void
 }
 
-const CustomerList: React.FC<Props> = ({ customers }: Props) => {
+const CustomerList: React.FC<Props> = ({ customers, onClick }: Props) => {
   return (
-    <Card
-      header={
-        <CardHeader
-          status="1 of 1"
-          subtitleText="Direct Reports"
-          titleText="TeamSpace"
-        />
-      }
-      style={{
-        paddingTop: '20px',
-        paddingLeft: '40px',
-        paddingRight: '25px',
-        paddingBottom: '45px',
-        height: '90vh',
-        width: '60vh',
-      }}
-    >
-      <List>
-        {customers.length ? (
-          customers.map((customer: CustomerModel) => (
-            <StandardListItem
-              key={customer.ID}
-              description={customer.jobPosition}
-            >
-              {customer.firstName}
-            </StandardListItem>
-          ))
-        ) : (
-          <StandardListItem></StandardListItem>
-        )}
-      </List>
-    </Card>
+    <>
+      <Card
+        header={
+          <CardHeader
+            status="1 of 1"
+            subtitleText="Direct Reports"
+            titleText="TeamSpace"
+          />
+        }
+        style={{
+          paddingTop: '20px',
+          paddingLeft: '40px',
+          paddingRight: '25px',
+          paddingBottom: '45px',
+          height: '90vh',
+          width: '60vh',
+        }}
+      >
+        <List>
+          {customers.length ? (
+            customers.map((customer: CustomerModel) => (
+              <StandardListItem
+                key={customer.ID}
+                onClick={() => onClick(customer.ID)}
+                description={customer.jobPosition}
+              >
+                {customer.firstName}
+              </StandardListItem>
+            ))
+          ) : (
+            <StandardListItem></StandardListItem>
+          )}
+        </List>
+      </Card>
+    </>
   )
 }
 
