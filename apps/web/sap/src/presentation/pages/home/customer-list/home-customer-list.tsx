@@ -23,6 +23,7 @@ import { setTheme } from '@ui5/webcomponents-base/dist/config/Theme'
 import Error from '@/presentation/components/error/error'
 
 import useLoadCustomer from '@/presentation/hooks/use-load-customer'
+import ModalProvider from '@/presentation/providers/modal-provider'
 
 type Props = {
   loadCustomerList: ILoadCustomerList
@@ -58,6 +59,7 @@ export const HomeCustomerList: React.FC<Props> = ({
   setTheme('sap_horizon_dark')
   return (
     <>
+      <ModalProvider />
       <SplitterLayout
         style={{
           height: '100%',
@@ -98,7 +100,7 @@ export const HomeCustomerList: React.FC<Props> = ({
                     style={{
                       paddingLeft: '40px',
                       paddingTop: '20px',
-                      paddingBottom: '20px',
+                      paddingBottom: '15px',
                     }}
                   >
                     Customers

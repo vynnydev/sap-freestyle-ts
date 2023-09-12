@@ -18,7 +18,6 @@ export class RemoteLoadCustomerList implements ILoadCustomerList {
 
     const remoteCustomersResult = httpResponse.body?.value?.value || []
     // const response = remoteCustomersResult?.value
-    console.log(remoteCustomersResult)
     switch (httpResponse.statusCode) {
       case HttpStatusCode.ok:
         return remoteCustomersResult

@@ -4,7 +4,9 @@ import './index.css'
 
 import Router from './main/routes/router'
 import reportWebVitals from './reportWebVitals'
+
 import { ThemeProvider } from '@ui5/webcomponents-react'
+// import ModalProvider from './presentation/providers/modal-provider'
 
 import '@ui5/webcomponents/dist/Assets'
 import '@ui5/webcomponents-fiori/dist/Assets'

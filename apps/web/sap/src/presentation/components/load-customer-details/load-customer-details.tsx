@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
+
 import {
   ObjectPage,
   DynamicPageHeader,
@@ -16,14 +17,25 @@ import {
   FormGroup,
   Label,
   MessageStrip,
+  ButtonDomRef,
 } from '@ui5/webcomponents-react'
 
 import useLoadCustomerDetail from '@/presentation/hooks/use-load-customer-detail'
 import useGetCustomerById from '@/presentation/hooks/use-get-customer-by-id'
+import useEditModal from '@/presentation/hooks/use-edit-modal'
 
 const LoadCustomerDetails = () => {
   const useLoadDetail = useLoadCustomerDetail()
   const { customer } = useGetCustomerById(useLoadDetail.activeId)
+  const useEdit = useEditModal()
+
+  const onPreview = (e: React.MouseEvent<ButtonDomRef, MouseEvent>) => {
+    e.stopPropagation()
+
+    if (!customer) return null
+
+    useEdit.onOpen(customer)
+  }
 
   return (
     <>
@@ -125,7 +137,11 @@ const LoadCustomerDetails = () => {
               titleText="Connect"
               actions={
                 <>
-                  <Button design="Emphasized" style={{ minWidth: '120px' }}>
+                  <Button
+                    onClick={onPreview}
+                    design="Emphasized"
+                    style={{ minWidth: '120px' }}
+                  >
                     Edit
                   </Button>
                 </>
