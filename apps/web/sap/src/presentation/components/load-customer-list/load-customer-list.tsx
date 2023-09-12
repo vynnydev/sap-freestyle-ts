@@ -14,7 +14,7 @@ type Props = {
   onClick: (id: number) => void
 }
 
-const CustomerList: React.FC<Props> = ({ customers, onClick }: Props) => {
+const LoadCustomerList: React.FC<Props> = ({ customers, onClick }: Props) => {
   return (
     <>
       <Card
@@ -54,4 +54,4 @@ const CustomerList: React.FC<Props> = ({ customers, onClick }: Props) => {
   )
 }
 
-export default CustomerList
+export default LoadCustomerList

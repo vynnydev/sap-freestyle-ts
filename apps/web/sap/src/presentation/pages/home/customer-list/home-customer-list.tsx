@@ -14,8 +14,8 @@ import { ILoadCustomerList } from '@/domain/application/usecases'
 
 import { useErrorHandler } from '@/presentation/hooks'
 
-import CustomerSection from '@/presentation/components/customer-section/customer-section'
-import CustomerList from '@/presentation/components/customer-list/customer-list'
+import LoadCustomerDetails from '@/presentation/components/load-customer-details/load-customer-details'
+import LoadCustomerList from '@/presentation/components/load-customer-list/load-customer-list'
 import Header from '@/presentation/components/header/header'
 
 import { setTheme } from '@ui5/webcomponents-base/dist/config/Theme'
@@ -107,10 +107,10 @@ export const HomeCustomerList: React.FC<Props> = ({
                   {state.error ? (
                     <Error error={state.error} reload={reload} />
                   ) : (
-                    <CustomerList
+                    <LoadCustomerList
                       onClick={(id: number) => useCustomer(id)}
                       customers={state.customers}
-                    ></CustomerList>
+                    ></LoadCustomerList>
                   )}
                 </FlexBox>
               </SplitterElement>
@@ -127,7 +127,7 @@ export const HomeCustomerList: React.FC<Props> = ({
                 {state.error ? (
                   <Error error={state.error} reload={reload} />
                 ) : (
-                  <CustomerSection />
+                  <LoadCustomerDetails />
                 )}
               </SplitterElement>
             </SplitterLayout>

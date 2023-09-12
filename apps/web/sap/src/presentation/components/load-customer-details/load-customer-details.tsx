@@ -18,17 +18,10 @@ import {
   MessageStrip,
 } from '@ui5/webcomponents-react'
 
-import { LoadCustomerListResponse } from '@/domain/application/usecases'
-import { CustomerModel } from '@/domain/models'
-
 import useLoadCustomerDetail from '@/presentation/hooks/use-load-customer-detail'
 import useGetCustomerById from '@/presentation/hooks/use-get-customer-by-id'
 
-type Props = {
-  customers: LoadCustomerListResponse[]
-}
-
-const CustomerSection = () => {
+const LoadCustomerDetails = () => {
   const useLoadDetail = useLoadCustomerDetail()
   const { customer } = useGetCustomerById(useLoadDetail.activeId)
 
@@ -207,4 +200,4 @@ const CustomerSection = () => {
   )
 }
 
-export default CustomerSection
+export default LoadCustomerDetails
